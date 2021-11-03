@@ -33,12 +33,17 @@
     </div>
 </main>
 
+<footer>
+    <Footer/>
+</footer>
+
 <script>
     import Navbar from "./Navbar.svelte";
     import TextBox from "./TextInput.svelte";
     import NumberInput from "./NumberInput.svelte";
     import {onMount} from 'svelte';
     import Combobox from "./Combobox.svelte";
+    import Footer from "./Footer.svelte";
 
     export let baseUrl
 
@@ -70,7 +75,7 @@
             body: JSON.stringify({
                 word: text,
                 repeat: times,
-                // inputLanguageCode: language.code
+                inputLanguageCode: language.code
             })
         })
         translated = await res.json()
