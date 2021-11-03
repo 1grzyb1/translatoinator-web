@@ -8,17 +8,12 @@
                      bind:value="{text}"/>
             <NumberInput label="Times to repeat"
                          bind:value={times}/>
-            {#if (loading === false)}
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"
-                        on:click={translate}>
-                    Translate
-                </button>
-                {:else}
-                <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed w-full"
-                        on:click={translate}>
-                    Translate
-                </button>
-                {/if}
+
+            <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded w-full
+                           {loading === true ? 'opacity-50 cursor-not-allowed' : ''}"
+                    on:click={translate}>
+                Translate
+            </button>
             {#if translated != null}
                 <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
                     <p class="font-bold">Translated text</p>
@@ -38,7 +33,7 @@
     import Navbar from "./Navbar.svelte";
     import TextBox from "./TextInput.svelte";
     import NumberInput from "./NumberInput.svelte";
-    import { onMount } from 'svelte';
+    import {onMount} from 'svelte';
     import Combobox from "./Combobox.svelte";
 
     export let baseUrl
